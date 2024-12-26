@@ -10,6 +10,6 @@ from products.serializers import ProductSerializer
 def api_home(request, *args, **kwargs):
     serializer = ProductSerializer(data = request.data)
     if serializer.is_valid():
-        data = serializer.save()
+        instance = serializer.save()
         print(serializer.data)
         return Response(serializer.data)
